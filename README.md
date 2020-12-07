@@ -44,8 +44,50 @@ The set of climate varibles used in this tutorial are the WorldClim Bio Variable
 
 To access this dataset, go to the [WorldClim website download page](https://www.worldclim.org/data/worldclim21.html).  Within the table containing "Bioclimatic variables", select bio30s or click [here](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_bio.zip) to download.  This is at a 30 second spatial resolution and the folder is 9.68 GB.  If you would like to try this tutorial using a smaller dataset with a larger spatial resolution, one can use the bio 10 minute or bio 5 minute datasets. 
 
-### Getting Started
+## Getting Started
 
 First we must set up our data folder with all data needed in this tutorial.  Create a "Data" folder and download/unzip the BicknellThrush.csv, NHVT shapefile files, and WorldClim GEOTIFFs to this folder.  Your Data folder environment should look something like this:
 
 ![datafolder](Images/foldersetup.jpg)
+
+## Data Manipulation Python Code
+
+Next, open your Python IDLE to beginning writing code to do two operations:
+1. Manipulate the input .csv to have three fields:  Species, Latitude, and Longitude
+2. Mask the bioclimatic GEOTIFFs to our NHVT shapefile study area and convert the masked varibles from GEOTIFF to .asc format.
+
+You may want reference the .py script within this repo to see this process.
+
+### Cleaning the BicknellThrush.csv
+
+The Maxent software only allows for a input of species occurrence records with the three fields mentioned earlier.  We will write a script to convert the raw .csv to a .csv containing three fields.
+
+First, the csv module is imported.
+```
+# import csv module
+import csv
+```
+Next, the BicknellThrush.csv is opened and assigned to a variable, Bicknell_Thrush.
+```
+# open and assign raw .csv file to variable
+Bicknell_Thrush=open('C:\CLARK\MaxentTutorial\Data\BicknellThrush.csv')
+```
+Then, we create a file location for the output .csv. Here we choose the same Data folder for our output and name the new .csv with three fields, Observations.csv.
+```
+# create writable file location for output .csv
+outputFile=open('C:\CLARK\MaxentTutorial\Data\Observations.csv','w')
+```
+Lastly, a *for loop* is created which, for each row in our input .csv, splits the fields in an occurrence of a tab.  The fields for species, latitude and longitude are assigned to variables and then are renamed.  The output is then written to our output .csv file location.
+```
+# for loop which creates a .csv with three columns, Species, Latitude, Longitude
+for row in Bicknell_Thrush:
+  obs=row.split('\t')
+  species=obs[9]
+  lat=obs[21]
+  lon=obs[22]
+  lat=lat.replace('decimalLatitude','Latitude')
+  lon=lon.replace('decimalLongitude','Longitude')
+  outputFile.write(species+', '+lat+', '+lon+'\n')
+```
+We can see by opening our output .csv, Observations.csv, that we now have a file with only three fields, species, latitude, and longitude.
+![newcsv](Images\newcsv.jpg)
