@@ -92,6 +92,7 @@ for row in Bicknell_Thrush:
   outputFile.write(species+', '+lat+', '+lon+'\n')
 ```
 We can see by opening our output .csv, Observations.csv, that we now have a file with only three fields, species, latitude, and longitude.
+
 ![newcsv](Images/newcsv.jpg)
 
 ### Masking and converting the Bioclimatic variables to .asc format
@@ -209,6 +210,10 @@ After renaming the projection file, open a new map in any version of ArcGIS (I u
 ![mapoutput](Images/output.jpg)
 
 ### Conclusion
+
+As shown in this tutorial, Maxent is a relatively easy to use open-source software for species distribution modeling.  Additionally, the output report, files, and graphs can be easily interpretted and used to create aesthetically pleasing maps in ArcGIS.  This software has great capabilities to streamline modeling of vulnerable species for conservation organizations and land management agencies during a time where a changing climate and development is impacting global biodiversity.  
+
+I hope that this tutorial has enhanced your knowledge of the software, data acquisition and preprocessing in order to obtain powerful results.  Moving forward, I would like to create a workflow that only utilizes open source software for data preparation and vizualization.
 
 ### Citations
 
