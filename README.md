@@ -196,6 +196,6 @@ The next output is a table of variable importance.  Each variable is shown as a 
 
 By selecting 'create response curves', in Step 4 of our running of Maxent, we can see how the exactly the climate variables respond to our model.  Lets take a look at bio05 and bio18 as they are the variables that contributed the most to our model.  For bio05, the max temperature in the warmest month, we see that the graph nears 1 (high suitability) at the lowest temperature and 0 (low suitability) at the highest temperature.  For bio18, precipitation in the warmest quarter, we see the graph near 1 at high precipitation and 0 at low precipitation.  Although we should not make any definite conclusions from this, it is logical to think that the Bicknell's Thrush prefers low temperatures and high precipitation during the summer months.  This makes sense as the Bicknell's Thrush breeds in high alpine areas during the summers in New England.  The following shows the response curves of our bioclimatic variables:
 
-![response](Images/response.jpg)
+![response](Images/response.JPG)
 
 
