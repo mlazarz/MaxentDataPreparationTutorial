@@ -151,3 +151,13 @@ for file in ClimateVariableList:
     # Execute RasterToASCII
     arcpy.RasterToASCII_conversion(inRaster, outASCII)
 ```
+
+After this final step, we now have 19 .asc files for all of our input bioclimatic variables.
+
+### Running Maxent
+
+We are now ready to run the Maxent species distribution modeler.  Open the Maxent.jar javascript application from wherever you saved it during download.
+
+The following shows the Maxent application interface and the required inputs:
+
+![maxentapp](Images/maxent.jpg)
