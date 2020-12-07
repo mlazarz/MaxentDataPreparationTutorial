@@ -182,5 +182,5 @@ The AUC graph shows the models fit and significance.  In our model, we see that 
 
 The next output is the report map showing the distribution surface and input training coordinates from our .csv file of Bicknell's Thrush.  The white squares are the coordinates of occurrence and the cooler colors indicate unsuitable habitat and the warm colors indicate highly suitable habitat.  This prediction of distribution is on a 0 to 1 scale.  The next main section will show how to import an output .asc file into ArcGIS for cleaner display.
 
-![mapout](Images/mapout.jpg)
+![mapout](Images/mapout.JPG)
 
