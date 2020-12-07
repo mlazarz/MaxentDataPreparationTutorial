@@ -220,12 +220,12 @@ Elith, J., Phillips, S.J., Hastie, T., Dudík, M., Chee, Y.E., and Yates, C.J., 
 
 Esri Inc. (2019). ArcGIS Pro (Version 2.4.2). Esri Inc. https://www.esri.com/en-us/arcgis/products/arcgis-pro/.
 
-Fick, S.E. and R.J. Hijmans, 2017. WorldClim 2: new 1km spatial resolution climate surfaces for global land areas. International Journal of Climatology 37 (12): 4302-4315.
+Fick, S.E. and R.J. Hijmans, 2017. WorldClim 2: new 1km spatial resolution climate surfaces for global land areas. International Journal of Climatology 37 (12): 4302-4315.  Available from: https://www.worldclim.org/data/worldclim21.html.
 
 Global Biodiversity Information Facility [online], 2020. Available from: https://www.gbif.org/occurrence/search.
 
-Merow, C., Smith, M.J., and Silander, J.A., 2013. A practical guide to MaxEnt for modeling species’ distributions: what it does, and why inputs and settings matter. Ecography, 36 (10), 1058–1069.
+Merow, C., Smith, M.J., and Silander, J.A., 2013. A practical guide to MaxEnt for modeling species’ distributions: what it does, and why inputs and settings matter. Ecography, 36 (10), 1058–1069.  Available from:  https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1600-0587.2013.07872.x.
 
-Phillips, S.J., Anderson, R.P., Dudík, M., Schapire, R.E., and Blair, M.E., 2017. Opening the black box: an open-source release of Maxent. Ecography, 40 (7), 887–893.
+Phillips, S.J., Anderson, R.P., Dudík, M., Schapire, R.E., and Blair, M.E., 2017. Opening the black box: an open-source release of Maxent. Ecography, 40 (7), 887–893. Available from: https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.03049.
 
 Philips, S.J., Dudík, M., and Schapire, R.E. [Internet] Maxent software for modeling species niches and distributions (Version 3.4.1) Available from url: https://biodiversityinformatics.amnh.org/open_source/maxent/
