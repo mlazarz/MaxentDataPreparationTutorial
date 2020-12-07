@@ -13,7 +13,7 @@ The Maxent software is beneficial for conservation and land management agencies 
 
 ![bicknells](Images/bicknells.jpg)
 
-In this tutorial, we will be modeling the species distribution of the Bicknell's Thrush in Vermont and New Hampshire using species occurrence records from 2010 to 2019 and climate information from 1970 to 2000.  The [Bicknell's Thrush](https://vtecostudies.org/wildlife/birds/mountain-birds/bicknells-thrush-2/) is one of the rarest songbird in the Eastern United States with a severe population vulnerability due to habitat loss from development and climate related factors.  We will be modeling distribution of the Bicknell's Thrush in Vermont and New Hampshire as it's summer breeding ground in is the high elevation boreal forests of the White Mountains and Green Mountains where Bicknell's Thrush habitat conservation is a priority.
+In this tutorial, we will be modeling the species distribution of the Bicknell's Thrush (*Catharus bicknelli*) in Vermont and New Hampshire using species occurrence records from 2010 to 2019 and climate information from 1970 to 2000.  The [Bicknell's Thrush](https://vtecostudies.org/wildlife/birds/mountain-birds/bicknells-thrush-2/) is one of the rarest songbird in the Eastern United States with a severe population vulnerability due to habitat loss from development and climate related factors.  We will be modeling distribution of the Bicknell's Thrush in Vermont and New Hampshire as it's summer breeding ground in is the high elevation boreal forests of the White Mountains and Green Mountains where Bicknell's Thrush habitat conservation is a priority.
 
 ## Software Needed
 
@@ -96,4 +96,58 @@ We can see by opening our output .csv, Observations.csv, that we now have a file
 
 ### Masking and converting the Bioclimatic variables to .asc format
 
+In order to analyze on a scale that only incorporates Vermont and New Hampshire rather than at a global scale we must mask our climate variables to the NHVT shapefile.  Additionally, the Maxent software does not read the GEOTIFF format, but rather the text based ASCII (.asc) format.  After masking, we will convert the GEOTIFFs to .asc.
 
+First we must import all of the modules needed for this operation.  These include arcpy, the spatial analyst extension of arcpy, and the operating system interface (os).
+```
+# import arcpy module, workspace environment, and spatial analyst extension
+import arcpy
+from arcpy import env
+from arcpy.sa import *
+
+# import operating system module
+import os
+```
+Next, we will organize the names of GEOTIFF files within the Data folder into a list.  We do this in order to easily call and loop through the 19 .tif files with ease during our masking and .asc conversion operations.  An empty list, ClimateVariableList, to hold our file names is created and the Data folder is looped through, taking the file name of each climate .tif and adding it to the empty list.  We can then print the ClimateVariableList to ensure that it contains 19 elements.
+```
+# create empty list for climate file names
+ClimateVariableList=[]
+
+# loops through climate folder and adds file name to empty list
+ClimateFolder = r'C:\\CLARK\\MaxentTutorial\\Data\\'
+for filename in os.listdir(ClimateFolder):
+    if filename.endswith(".tif"):
+        ClimateVariableList.append(filename)
+print(ClimateVariableList)
+```
+We then set the workspace environment to our Data folder, set the overwrite priveleges as True (we want only one climate .asc for each variable when we run Maxent), and check out the spatial analyst extension.
+```
+# Set environment settings to folder with climate data and allow for overwriting
+env.workspace = 'C:\\CLARK\\MaxentTutorial\\Data'
+env.overwriteOutput = True
+arcpy.CheckOutExtension("Spatial") #check out spatial analyst extension
+```
+After setting our environment, we create a *for loop* which masks each input GEOTIFF to the NHVT shapefile.  The output is saved by overwriting the non-masked input.
+```
+# loop through list of file names and mask climate variables to study area mask
+for file in ClimateVariableList:
+  # Set local variables
+  inRaster = file
+  inMaskData = "C:\CLARK\MaxentTutorial\Data\NHVT.shp"
+
+  # Execute ExtractByMask
+  outExtractByMask = ExtractByMask(inRaster, inMaskData)
+
+  # Save the output 
+  outExtractByMask.save(file)
+```
+We then create a second *for loop* which converts the masked GEOTIFFs to the .asc format using the arcpy spatial analyst extension RastertoASCII_conversion function.  The file is saved after removing the '.tif' file extension and adding '.asc'.
+```
+# loop through list of file names and convert .tif to .asc
+for file in ClimateVariableList:
+    # Set local variables
+    inRaster = file
+    outASCII = 'C:\\CLARK\\MaxentTutorial\\Data\\'+file[:-4]+".asc"
+    # Execute RasterToASCII
+    arcpy.RasterToASCII_conversion(inRaster, outASCII)
+```
