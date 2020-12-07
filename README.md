@@ -180,7 +180,15 @@ The AUC graph shows the models fit and significance.  In our model, we see that 
 
 ![AUC](Images/AUC.JPG)
 
+#### Distribution map
+
 The next output is the report map showing the distribution surface and input training coordinates from our .csv file of Bicknell's Thrush.  The white squares are the coordinates of occurrence and the cooler colors indicate unsuitable habitat and the warm colors indicate highly suitable habitat.  This prediction of distribution is on a 0 to 1 scale.  The next main section will show how to import an output .asc file into ArcGIS for cleaner display.
 
 ![mapout](Images/mapout.JPG)
+
+#### Variable importance
+
+The next output is a table of variable importance.  Each variable is shown as a percentage of contribution to the model as well as the importance of the variable as it relates to the random, psedo-absense values, in permutation importance.  We can see that in this model that the most important variables for predicting the Bicknell's Thrush distribution are variables bio05, max temperature in the warmest month, and bio18, precipitation in the warmest quarter.
+
+![variableimportance](Images/variableimportance.JPG)
 
