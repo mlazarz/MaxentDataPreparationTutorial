@@ -169,3 +169,14 @@ The following shows the Maxent application interface and the required inputs:
 5.  Lastly run the model.  There are advanced settings if you would like to explore more options.  To learn more about these options follow this [link](http://www.amnh.org/content/download/141371/2285439/file/LinC3_SpeciesDistModeling_Ex.pdf) to download a tutorial that focuses more on the setup and outputs of Maxent.
 
 When running Maxent, you will receive a popup stating that some of the input records do not have climate variables associated with them.  This is because we did not query the species records to the study area.  Select 'ignore all' as these records will not disregarded in our analysis.
+
+### Results and analysis
+
+After running the application, the output will be located in the directory that was selected.  The following is a brief explaination of the output report:
+
+#### Area under the curve (AUC) graph
+
+The AUC graph shows the models fit and significance.  In our model, we see that our AUC is equal to 0.946 compared to the null hypothesis (representing a random model) of 0.5.  A model with a perfect fit would have an AUC of 1.0 and the closer to 1.0 a model falls, the more significant the results.  Here we see that we have high significance of our findings:
+
+![AUC](Images\AUC.jpg)
+
