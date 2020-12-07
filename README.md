@@ -161,3 +161,11 @@ We are now ready to run the Maxent species distribution modeler.  Open the Maxen
 The following shows the Maxent application interface and the required inputs:
 
 ![maxentapp](Images/maxent.jpg)
+
+1.  In the Sample file dropdown, select our cleaned species occurrence .csv, Observations.csv.
+2.  In the Environmental Layers directory dropdown, select the Data folder containing our masked .asc files.  When selecting the Data folder, the 19 bioclimatic .asc files will appear.  Ensure that all files are selected and labeled as 'continuous' variables rather than catagorical.
+3.  Select the desired outputs of running the model.  'Create response curve' will include response curves for each variable and how they relate to the predicted distribution.  'Make picture of predictions' will include a map of the distribution surface in the output report. 'Do jackknive to measure variable importance' will produce an output graph comparing climatic variable importance to each other variable and how they contribute to the model.  Ensure that the output format is 'Cloglog' and the output file type is '.asc'.
+4.  Select the output directory.  I selected the folder housing the Data folder.  Also, select the projection layers directory as the Data folder.  This is done because our projection files are within this folder after running the RastertoASCII function.
+5.  Lastly run the model.  There are advanced settings if you would like to explore more options.  To learn more about these options follow this [link](http://www.amnh.org/content/download/141371/2285439/file/LinC3_SpeciesDistModeling_Ex.pdf) to download a tutorial that focuses more on the setup and outputs of Maxent.
+
+When running Maxent, you will receive a popup stating that some of the input records do not have climate variables associated with them.  This is because we did not query the species records to the study area.  Select 'ignore all' as these records will not disregarded in our analysis.
