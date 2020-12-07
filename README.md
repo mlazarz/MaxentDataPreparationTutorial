@@ -90,4 +90,4 @@ for row in Bicknell_Thrush:
   outputFile.write(species+', '+lat+', '+lon+'\n')
 ```
 We can see by opening our output .csv, Observations.csv, that we now have a file with only three fields, species, latitude, and longitude.
-![newcsv](Images\newcsv.jpg)
+![newcsv](Images/newcsv.jpg)
