@@ -56,7 +56,9 @@ Next, open your Python IDLE to beginning writing code to do two operations:
 1. Manipulate the input .csv to have three fields:  Species, Latitude, and Longitude
 2. Mask the bioclimatic GEOTIFFs to our NHVT shapefile study area and convert the masked varibles from GEOTIFF to .asc format.
 
-You may want reference the .py script within this repo to see this process.
+You may want reference the .py script within this repo to see this process.  The following is the workflow of the entire process and the following sections will walk you through this flow step by step:
+
+![workflow](Images/workflow.jpg)
 
 ### Cleaning the BicknellThrush.csv
 
