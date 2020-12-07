@@ -178,5 +178,5 @@ After running the application, the output will be located in the directory that 
 
 The AUC graph shows the models fit and significance.  In our model, we see that our AUC is equal to 0.946 compared to the null hypothesis (representing a random model) of 0.5.  A model with a perfect fit would have an AUC of 1.0 and the closer to 1.0 a model falls, the more significant the results.  Here we see that we have high significance of our findings:
 
-![AUC](Images\AUC.jpg)
+![AUC](Images\AUC.JPG)
 
