@@ -1,19 +1,19 @@
 # Species Distribution Modeling of Bicknell's Thrush in VT and NH using Maxent
 ### A Tutorial for Data Preparation | Mitchell Lazarz | 07 December 2020 | ID30274 Final Project
 
-This repo contains this README explaining the steps for data preparation for the Maxent software for modeling species niche and distribution.  This README will walk the user through the steps of software download, data download, local drive preparation, the python script for data preparation, running of the Maxent software, as well as a short analysis of outputs.  The .py script and species occurrence and study area mask data used in this tutorial are contained in this repo.
+This repo contains this README explaining the steps for data preparation for the Maxent software for modeling species niche and distribution.  This README will walk the user through the steps of software download, data download, local drive preparation, python codes for data preparation, running of the Maxent software, as well as a short analysis of outputs.  A .py script, a .csv table of species occurrence, and a study area mask shapefile used in this tutorial and contained in this repo.
 
 ## What is Maxent?  And why use Maxent?
 
 [Maxent](https://biodiversityinformatics.amnh.org/open_source/maxent/) is an open-source software that utilizes a machine learning algorithm in order to model species distribution based on species occurrence records and a set of climate variables.  The software extracts values at species occurrence coordinates from the series of climate grids and projects the distribution by comparing to a set of randomly selected points used as psedo-absence records.  The algorithm is based on the maximum entropy theory that estimates the greatest probability based on our current understanding of the distribution and attributes of our input records.  More information about the statistics behind this software can be found here [(Elith et. al 2010).](https://web.stanford.edu/~hastie/Papers/maxent_explained.pdf)  The Maxent approach of species distribution modeling is a widely accepted method in the ecological modeling community.  As of 2006, the Maxent software has been cited over [6000 times](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.03049) for use in ecological studies in Google Scholar (Philips et. al 2017).
 
-The Maxent software is beneficial for conservation and land management agencies with a limited budget.  Because Maxent is open-source, it is available generally for use by the public for no cost.  This software also is relatively simple to use and the output report gives clear explanations of the findings of the model.  Because it is so widely used, there are many additional resources for result interpretation.  A set of resources from the creator, Robert Anderson, can be found [here.](https://www.andersonlab.ccny.cuny.edu/resources)
+The Maxent software is beneficial for conservation and land management agencies with a limited budget.  Because Maxent is open-source, it is available for use to the public for no cost.  This software is relatively simple to use and the output report gives clear explanations of the findings of the model.  Because it is so widely used, there are many additional resources for result interpretation.  A set of resources from one of the creators, Robert Anderson, can be found [here.](https://www.andersonlab.ccny.cuny.edu/resources)
 
 ## Tutorial Summary
 
 ![bicknells](Images/bicknells.jpg)
 
-In this tutorial, we will be modeling the species distribution of the Bicknell's Thrush (*Catharus bicknelli*) in Vermont and New Hampshire using species occurrence records from 2010 to 2019 and climate information from 1970 to 2000.  The [Bicknell's Thrush](https://vtecostudies.org/wildlife/birds/mountain-birds/bicknells-thrush-2/) is one of the rarest songbird in the Eastern United States with a severe population vulnerability due to habitat loss from development and climate related factors.  We will be modeling distribution of the Bicknell's Thrush in Vermont and New Hampshire as it's summer breeding ground in is the high elevation boreal forests of the White Mountains and Green Mountains where Bicknell's Thrush habitat conservation is a priority.
+In this tutorial, we will be modeling the species distribution of the Bicknell's Thrush (*Catharus bicknelli*) in Vermont and New Hampshire using species occurrence records from 2010 to 2019 and climate information from 1970 to 2000.  The [Bicknell's Thrush](https://vtecostudies.org/wildlife/birds/mountain-birds/bicknells-thrush-2/) is one of the rarest songbird in the Eastern United States with severe population vulnerability due to habitat loss from development and climate related factors.  We will be modeling distribution of the Bicknell's Thrush in Vermont and New Hampshire as the bird's summer breeding ground in is the high elevation boreal forests of the White Mountains and Green Mountains where Bicknell's Thrush habitat conservation is a priority.
 
 ## Software Needed
 
@@ -32,17 +32,17 @@ In this tutorial we will be using three sets of data:
 3. A set of climate variables downloaded as GEOTIFFs
 
 #### Species Occurrence .csv
-Found in this repo is a .csv of Bicknell's Thrush sightings from 2010 to 2019.  This .csv was accessed from the [Global Biodiversity Information Facility](https://www.gbif.org/).  This database contains species records from over 54,000 species.  If you would like to model distribution for a different species in the future, GBIF.org has a [user-friendly interface](https://www.gbif.org/occurrence/search) for querying for your species of interest and timeframe.  The .csv within this repo is a raw dataset that contains over 40 fields.
+Found in this repo is a .csv of Bicknell's Thrush sightings from 2010 to 2019.  This .csv was accessed from the [Global Biodiversity Information Facility](https://www.gbif.org/).  The Global Biodiveristy Information Facility database contains species records from over 54,000 species.  If you would like to model distribution for a different species in the future, GBIF.org has a [user-friendly interface](https://www.gbif.org/occurrence/search) for querying for your species of interest and timeframe.  The .csv within this repo is a raw dataset of Bicknell's Thrush sighting that contains over 40 fields.
 
 #### Study Area Mask
-Within the StudyAreaMask folder in this repo is a shapefile of Vermont and New Hampshire, our area of interest.  This shapefile was accessed from [TIGER U.S. Census States, 2018](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html).   
+The StudyAreaMask folder in this repo contains a shapefile of Vermont and New Hampshire, our area of interest.  This shapefile was accessed from [TIGER U.S. Census States, 2018](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html).   
 
 #### Climate Variables
-The set of climate variables used in this tutorial are the WorldClim Bio Variables Version 2.1.  This is a set of 19 historic bioclimatic variables ranging from average/minimum/maximum temperature, annual/monthly/quarterly precipitation, and seasonal weather variables.  These variables are downloaded in GEOTIFF format.  A list of these variables can be seen below:
+The set of climate variables used in this tutorial are the WorldClim Bio Variables Version 2.1.  This is a set of 19 historic bioclimatic variables ranging from average/minimum/maximum temperature, annual/monthly/quarterly precipitation, and seasonal weather variables from years 1970 to 2000.  These variables are downloaded in GEOTIFF format.  A list of these variables can be seen below:
 
 ![variables](Images/variables.jpg)
 
-To access this dataset, go to the [WorldClim website download page](https://www.worldclim.org/data/worldclim21.html).  Within the table containing "Bioclimatic variables", select bio30s or click [here](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_bio.zip) to download.  This is at a 30 second spatial resolution and the folder is 9.68 GB.  If you would like to try this tutorial using a smaller dataset with a larger spatial resolution, one can use the bio 10 minute or bio 5 minute datasets. If you would like to create a model of global distribution, I would suggest using the bio 5 minute dataset and skipping the masking steps in the python script.
+To access this dataset, go to the [WorldClim website download page](https://www.worldclim.org/data/worldclim21.html).  Within the table containing "Bioclimatic variables", select bio30s or click [here](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_bio.zip) to download.  This is at a 30 second spatial resolution and the folder is large, 9.68 GB.  If you would like to try this tutorial using a smaller dataset with a larger spatial resolution, one can use the bio 10 minute or bio 5 minute datasets. If you would like to create a model of global distribution of a species, I would suggest using the bio 5 or 10 minute dataset and skipping the masking steps in the python script.
 
 ## Getting Started
 
@@ -97,7 +97,7 @@ We can see by opening our output .csv, Observations.csv, that we now have a file
 
 ### Masking and converting the Bioclimatic variables to .asc format
 
-In order to analyze on a scale that only incorporates Vermont and New Hampshire rather than at a global scale we must mask our climate variables to the NHVT shapefile.  Additionally, the Maxent software does not read the GEOTIFF format, but rather the text-based ASCII (.asc) format.  After masking, we will convert the GEOTIFFs to .asc.
+In order to analyze on a scale that only incorporates Vermont and New Hampshire rather than at a global scale, we must mask our climate variables to the NHVT shapefile.  Additionally, the Maxent software does not read the GEOTIFF format, but rather the text-based ASCII (.asc) format.  After masking, we will convert the GEOTIFFs to .asc.
 
 First, we must import all of the modules needed for this operation.  These include arcpy, the spatial analyst extension of arcpy, and the operating system interface (os).
 ```
@@ -109,7 +109,7 @@ from arcpy.sa import *
 # import operating system module
 import os
 ```
-Next, we will organize the names of GEOTIFF files within the Data folder into a list.  We do this in order to easily call and loop through the 19 .tif files with ease during our masking and .asc conversion operations.  An empty list, ClimateVariableList, to hold our file names is created and the Data folder is looped through, taking the file name of each climate .tif and adding it to the empty list.  We can then print the ClimateVariableList to ensure that it contains 19 elements.
+Next, we will organize the names of GEOTIFF files within the Data folder into a list.  We do this in order to easily call and loop through the 19 .tif files with ease during our masking and .asc conversion operations.  An empty list, ClimateVariableList, is created to hold our file names and the Data folder is looped through, taking the file name of each climate .tif and adding it to the empty list.  We can then print the ClimateVariableList to ensure that it contains 19 elements.
 ```
 # create empty list for climate file names
 ClimateVariableList=[]
@@ -183,7 +183,7 @@ The AUC graph shows the models fit and significance.  In our model, we see that 
 
 #### Distribution map
 
-The next output is the report map showing the distribution surface and input training coordinates from our .csv file of Bicknell's Thrush.  The white squares are the coordinates of occurrence and the cooler colors indicate unsuitable habitat and the warm colors indicate highly suitable habitat.  This prediction of distribution is on a 0 to 1 scale.  The next main section will show how to import an output .asc file into ArcGIS for cleaner display.
+The next output is the report map showing the distribution surface and input training coordinates from our .csv file of Bicknell's Thrush.  The white squares are the coordinates of occurrence and the cooler colors indicate lesser suitable habitat and the warm colors indicate higher suitable habitat.  This prediction of distribution is on a 0 to 1 scale.  Knowing the geography of Vermont and New Hampshire helps with interpretation of this figure.  We see that the highly suitable habitat is in the alpine areas of the White Mountain in New Hampshire and the Green Mountains in Vermont.  The next main section will show how to import the output .asc file into ArcGIS for cleaner display and gives the user the ability to investigate the spatial distribution of suitable habitat.
 
 ![mapout](Images/mapout.JPG)
 
