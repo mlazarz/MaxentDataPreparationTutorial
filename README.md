@@ -1,4 +1,4 @@
-# Species Distribution Modeling using Maxent
+# Species Distribution Modeling of Bicknell's Thrush in VT and NH using Maxent
 ### A Tutorial for Data Preparation | Mitchell Lazarz | 07 December 2020 | ID30274 Final Project
 
 This repo contains this README explaining the steps for data preparation for the Maxent software for modeling species niche and and distribution.  This README will walk the user through the steps of software download, data download, local drive preparation, the python script for data preparation, running of the Maxent software, as well as a short analysis of outputs.  The .py script and species occurrence and study area mask data used in this tutorial are contained in this repo.
