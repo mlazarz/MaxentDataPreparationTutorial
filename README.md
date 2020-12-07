@@ -203,3 +203,7 @@ By selecting 'create response curves', in Step 4 of our running of Maxent, we ca
 We can create a cleaner map of our distribution prediction of the Bicknell's Thrush by importing the output .asc into ArcGIS.  Before doing this we must make a correct the projection file (.prj) that is associated with our output, Catharus_Bicknelli.asc.  In the directory containing the predition surface .asc file, Catharus_Bicknelli.asc, there is a blank .prj file.  Manually rename this file to Catharus_Bicknelli.prj.  The following is a screenshot showing the output folder containing the unlabeled projection file:
 
 ![projection](Images/projection.JPG)
+
+After renaming the projection file, open a new map in any version of ArcGIS (I used ArcGIS Pro).  Create a folder connection to the folder containing the Catharus_Bicknelli.asc file.  Drag the .asc file into the mapframe and the surface will appear correctly projected.  Futhermore, you can use the XY to Point tool to display the occurrence records using the Observations.csv file.  Change the symbology however you see fit to cleanly display the data.  The following is a map product created in ArcGIS using the .asc output and displaying the Bicknell's Thrush occurrence points.
+
+![mapoutput](Images/output.jpg)
