@@ -19,7 +19,7 @@ In this tutorial, we will be modeling the species distribution of the Bicknell's
 
 In this tutorial, the user will need: 
 1. Maxent species modeler application 
-2. A Python IDLE (I used [IDLE (Python GUI) 3.9.0](https://www.python.org/downloads/)) 
+2. A Python IDLE (I used [IDLE (Python GUI) 2.7.16](https://www.python.org/downloads/)) 
 3. ArcGIS Map or Pro with spatial analyst extension
 
 To download Maxent, go to [this site](https://biodiversityinformatics.amnh.org/open_source/maxent/) and download the latest version.  Unzip folder contents onto your computers hard drive; I unzipped to my Program Files.  To open the Maxent modeler (you do not need to do this now), open the maxent executable .jar file within the folder.
@@ -42,7 +42,7 @@ The set of climate varibles used in this tutorial are the WorldClim Bio Variable
 
 ![variables](Images/variables.jpg)
 
-To access this dataset, go to the [WorldClim website download page](https://www.worldclim.org/data/worldclim21.html).  Within the table containing "Bioclimatic variables", select bio30s or click [here](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_bio.zip) to download.  This is at a 30 second spatial resolution and the folder is 9.68 GB.  If you would like to try this tutorial using a smaller dataset with a larger spatial resolution, one can use the bio 10 minute or bio 5 minute datasets. 
+To access this dataset, go to the [WorldClim website download page](https://www.worldclim.org/data/worldclim21.html).  Within the table containing "Bioclimatic variables", select bio30s or click [here](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_bio.zip) to download.  This is at a 30 second spatial resolution and the folder is 9.68 GB.  If you would like to try this tutorial using a smaller dataset with a larger spatial resolution, one can use the bio 10 minute or bio 5 minute datasets. If you would like to create a model of global distribution, I would suggest using the bio 5 minute dataset and skipping the masking steps in the python script.
 
 ## Getting Started
 
@@ -56,7 +56,7 @@ Next, open your Python IDLE to beginning writing code to do two operations:
 1. Manipulate the input .csv to have three fields:  Species, Latitude, and Longitude
 2. Mask the bioclimatic GEOTIFFs to our NHVT shapefile study area and convert the masked varibles from GEOTIFF to .asc format.
 
-You may want reference the .py script within this repo to see this process.  The following is the workflow of the entire process and the following sections will walk you through this flow step by step:
+You may want reference the python script, MaxentTutorial.py, within this repo to see this process.  The following is the workflow of the entire process and the following sections will walk you through this flow step by step:
 
 ![workflow](Images/workflow.jpg)
 
