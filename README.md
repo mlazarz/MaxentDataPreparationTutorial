@@ -20,4 +20,12 @@ To download Maxent, go to [this site](https://biodiversityinformatics.amnh.org/o
 
 ## Data
 
+In this tutorial we will be using three sets of data:
+1. A .csv of species occurrence records
+2. A study area mask
+3. A set of climate variables downloaded as GEOTIFFs
+
+#### Species Occurrence .csv
+Found in this repo is a .csv of Bicknell's Thrush sightings from 2010 to 2019.  This .csv was accessed from the [Global Biodiversity Information Facility](https://www.gbif.org/).  This database contains species records from over 54,000 species.  If you would like to model distribution for a different species in the future, GBIF.org has a [user-friendly interface](https://www.gbif.org/occurrence/search) for querying for your species of interest and timeframe.  The .csv within this repo was downloaded with all 
+
 
