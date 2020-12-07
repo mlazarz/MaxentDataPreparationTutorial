@@ -93,3 +93,7 @@ for row in Bicknell_Thrush:
 ```
 We can see by opening our output .csv, Observations.csv, that we now have a file with only three fields, species, latitude, and longitude.
 ![newcsv](Images/newcsv.jpg)
+
+### Masking and converting the Bioclimatic variables to .asc format
+
+
