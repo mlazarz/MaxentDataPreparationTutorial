@@ -178,5 +178,9 @@ After running the application, the output will be located in the directory that 
 
 The AUC graph shows the models fit and significance.  In our model, we see that our AUC is equal to 0.946 compared to the null hypothesis (representing a random model) of 0.5.  A model with a perfect fit would have an AUC of 1.0 and the closer to 1.0 a model falls, the more significant the results.  Here we see that we have high significance of our findings:
 
-![AUC](Images\AUC.JPG)
+![AUC](Images/AUC.JPG)
+
+The next output is the report map showing the distribution surface and input training coordinates from our .csv file of Bicknell's Thrush.  The white squares are the coordinates of occurrence and the cooler colors indicate unsuitable habitat and the warm colors indicate highly suitable habitat.  This prediction of distribution is on a 0 to 1 scale.  The next main section will show how to import an output .asc file into ArcGIS for cleaner display.
+
+![mapout](Images/mapout.jpg)
 
