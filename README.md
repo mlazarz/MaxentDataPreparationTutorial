@@ -198,4 +198,8 @@ By selecting 'create response curves', in Step 4 of our running of Maxent, we ca
 
 ![response](Images/response.JPG)
 
+### Importing output prediction .asc surface into ArcGIS
 
+We can create a cleaner map of our distribution prediction of the Bicknell's Thrush by importing the output .asc into ArcGIS.  Before doing this we must make a correct the projection file (.prj) that is associated with our output, Catharus_Bicknelli.asc.  In the directory containing the predition surface .asc file, Catharus_Bicknelli.asc, there is a blank .prj file.  Manually rename this file to Catharus_Bicknelli.prj.  The following is a screenshot showing the output folder containing the unlabeled projection file:
+
+![projection](Images/projection.JPG)
