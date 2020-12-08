@@ -155,7 +155,7 @@ for file in ClimateVariableList:
 
 After this final step, we now have 19 .asc files for all of our input bioclimatic variables.
 
-### Running Maxent
+## Running Maxent
 
 We are now ready to run the Maxent species distribution modeler.  Open the Maxent.jar Java application from wherever you saved it during download.
 
@@ -171,7 +171,7 @@ The following shows the Maxent application interface and the required inputs:
 
 When running Maxent, you will receive a popup stating that some of the input records do not have climate variables associated with them.  This is because we did not query the species records to the study area.  Select 'ignore all' as these records will not disregarded in our analysis.
 
-### Results and analysis
+## Results and analysis
 
 After running the application, the output will be located in the directory that was selected.  The following is a brief explanation of the output report:
 
@@ -199,7 +199,7 @@ By selecting 'create response curves', in Step 4 of our running of Maxent, we ca
 
 ![response](Images/response.JPG)
 
-### Importing output prediction .asc surface into ArcGIS
+## Importing output prediction .asc surface into ArcGIS
 
 We can create a cleaner map of our distribution prediction of the Bicknell's Thrush by importing the output .asc into ArcGIS.  Before doing this we must make a correct the projection file (.prj) that is associated with our output, Catharus_Bicknelli.asc.  In the directory containing the prediction surface .asc file, Catharus_Bicknelli.asc, there is a blank .prj file.  Manually rename this file to Catharus_Bicknelli.prj.  The following is a screenshot showing the output folder containing the unlabeled projection file:
 
@@ -209,7 +209,7 @@ After renaming the projection file, open a new map in any version of ArcGIS (I u
 
 ![mapoutput](Images/output.jpg)
 
-### Conclusion
+## Conclusion
 
 As shown in this tutorial, Maxent is a relatively easy to use open-source software for species distribution modeling.  Additionally, the output report, files, and graphs can be easily interpreted and used to create aesthetically pleasing maps in ArcGIS.  This software has great capabilities to streamline modeling of vulnerable species for conservation organizations and land management agencies during a time where a changing climate and development is impacting global biodiversity.  
 
