@@ -1,19 +1,19 @@
 # Species Distribution Modeling of Bicknell's Thrush in VT and NH using Maxent
 ### A Tutorial for Data Preparation | Mitchell Lazarz | 07 December 2020 | ID30274 Final Project
 
-This repo contains this README explaining the steps for data preparation for the Maxent software for modeling species niche and distribution.  This README will walk the user through the steps of software download, data download, local drive preparation, python codes for data preparation, running of the Maxent software, as well as a short analysis of outputs.  A .py script, a .csv table of species occurrence, and a study area mask shapefile used in this tutorial and contained in this repo.
+This repo contains this README explaining the steps for data preparation for the Maxent software for modeling species niche and distribution.  This README will walk the user through the steps of software download, data download, local drive preparation, python codes for data preparation, running of the Maxent software, as well as a short analysis of outputs.  A .py script, a .csv table of species occurrence, and a study area mask shapefile used in this tutorial are contained in this repo.
 
 ## What is Maxent?  And why use Maxent?
 
 [Maxent](https://biodiversityinformatics.amnh.org/open_source/maxent/) is an open-source software that utilizes a machine learning algorithm in order to model species distribution based on species occurrence records and a set of climate variables.  The software extracts values at species occurrence coordinates from the series of climate grids and projects the distribution by comparing to a set of randomly selected points used as psedo-absence records.  The algorithm is based on the maximum entropy theory that estimates the greatest probability based on our current understanding of the distribution and attributes of our input records.  More information about the statistics behind this software can be found here [(Elith et. al 2010).](https://web.stanford.edu/~hastie/Papers/maxent_explained.pdf)  The Maxent approach of species distribution modeling is a widely accepted method in the ecological modeling community.  As of 2006, the Maxent software has been cited over [6000 times](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.03049) for use in ecological studies in Google Scholar (Philips et. al 2017).
 
-The Maxent software is beneficial for conservation and land management agencies with a limited budget.  Because Maxent is open-source, it is available for use to the public for no cost.  This software is relatively simple to use and the output report gives clear explanations of the findings of the model.  Because it is so widely used, there are many additional resources for result interpretation.  A set of resources from one of the creators, Robert Anderson, can be found [here.](https://www.andersonlab.ccny.cuny.edu/resources)
+The Maxent software is beneficial for conservation and land management agencies with a limited budget.  Because Maxent is open-source, it is available for use to the public for no cost.  This software is relatively simple to use and the output report gives clear explanations of the findings of the model.  Because it is so widely used, there are many additional resources for results interpretation.  A set of resources from one of the creators, Robert Anderson, can be found [here.](https://www.andersonlab.ccny.cuny.edu/resources)
 
 ## Tutorial Summary
 
 ![bicknells](Images/bicknells.jpg)
 
-In this tutorial, we will be modeling the species distribution of the Bicknell's Thrush (*Catharus bicknelli*) in Vermont and New Hampshire using species occurrence records from 2010 to 2019 and climate information from 1970 to 2000.  The [Bicknell's Thrush](https://vtecostudies.org/wildlife/birds/mountain-birds/bicknells-thrush-2/) is one of the rarest songbird in the Eastern United States with severe population vulnerability due to habitat loss from development and climate related factors.  We will be modeling distribution of the Bicknell's Thrush in Vermont and New Hampshire as the bird's summer breeding ground in is the high elevation boreal forests of the White Mountains and Green Mountains where Bicknell's Thrush habitat conservation is a priority.
+In this tutorial, we will be modeling the species distribution of the Bicknell's Thrush (*Catharus bicknelli*) in Vermont and New Hampshire using species occurrence records from 2010 to 2019 and climate information from 1970 to 2000.  The [Bicknell's Thrush](https://vtecostudies.org/wildlife/birds/mountain-birds/bicknells-thrush-2/) is one of the rarest songbird in the Eastern United States with severe population vulnerability due to habitat loss from development and climate related factors.  We will be modeling distribution of the Bicknell's Thrush in Vermont and New Hampshire as the bird's summer breeding ground is in the high elevation boreal forests of the White Mountains and Green Mountains where Bicknell's Thrush habitat conservation is a priority.
 
 ## Software Needed
 
@@ -183,13 +183,13 @@ The AUC graph shows the models fit and significance.  In our model, we see that 
 
 #### Distribution map
 
-The next output is the report map showing the distribution surface and input training coordinates from our .csv file of Bicknell's Thrush.  The white squares are the coordinates of occurrence and the cooler colors indicate lesser suitable habitat and the warm colors indicate higher suitable habitat.  This prediction of distribution is on a 0 to 1 scale.  Knowing the geography of Vermont and New Hampshire helps with interpretation of this figure.  We see that the highly suitable habitat is in the alpine areas of the White Mountain in New Hampshire and the Green Mountains in Vermont.  The next main section will show how to import the output .asc file into ArcGIS for cleaner display and gives the user the ability to investigate the spatial distribution of suitable habitat.
+The next output is the report map showing the distribution surface and input training coordinates from our .csv file of Bicknell's Thrush.  The white squares are the coordinates of occurrence, the cooler colors indicate lesser suitable habitat, and the warm colors indicate higher suitable habitat.  This prediction of distribution is on a 0 to 1 scale.  Knowing the geography of Vermont and New Hampshire helps with interpretation of this figure.  We see that the highly suitable habitat is in the alpine areas of the White Mountains in New Hampshire and the Green Mountains in Vermont.  The next main section will show how to import the output .asc file into ArcGIS for cleaner display and gives the user the ability to investigate the spatial distribution of suitable habitat.
 
 ![mapout](Images/mapout.JPG)
 
 #### Variable importance
 
-The next output is a table of variable importance.  Each variable is shown as a percentage of contribution to the model as well as the importance of the variable as it relates to the random, psedo-absence values, in permutation importance.  We can see that in this model that the most important variables for predicting the Bicknell's Thrush distribution are variables bio05, max temperature in the warmest month, and bio18, precipitation in the warmest quarter.
+The next output is a table of variable importance.  Each variable is shown as a percentage of contribution to the model as well as the importance of the variable as it relates to the random, psedo-absence values, and permutation importance.  We can see that in this model that the most important variables for predicting the Bicknell's Thrush distribution are variables bio05, max temperature in the warmest month, and bio18, precipitation in the warmest quarter.
 
 ![variableimportance](Images/variableimportance.JPG)
 
